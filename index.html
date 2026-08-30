@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Pavel</title>
+<meta name="description" content="Pavel Šnobl - daňové poradenství pro sportovce a umělce">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2e3481;
+    --navy-rgb:46,52,129;
+    --orange:#d1583d;
+    --orange-rgb:209,88,61;
+    --white:#ffffff;
+    --maxw:1180px;
+    --radius-pill:999px;
+    --radius-card:26px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    font-weight:400;
+    color:var(--navy);
+    background:var(--white);
+    line-height:1.6;
+    font-size:16px;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:300;}
+  section[id]{scroll-margin-top:90px;}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--orange);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .pill{
+    display:inline-block;
+    background:var(--orange);
+    color:#fff;
+    border-radius:var(--radius-pill);
+    padding:10px 26px;
+    font-weight:700;
+    font-family:'Poppins',sans-serif;
+    font-size:16px;
+    white-space:nowrap;
+  }
+  .pill.navy{background:var(--navy);}
+
+  /* ===== HEADER ===== */
+  header{
+    background:var(--navy);
+    position:sticky;top:0;z-index:100;
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 32px;max-width:var(--maxw);margin:0 auto;
+  }
+  .logo img{height:38px;width:auto;}
+  nav ul{display:flex;gap:14px;flex-wrap:wrap;}
+  nav a{
+    display:inline-block;
+    background:var(--orange);
+    color:#fff;
+    border-radius:var(--radius-pill);
+    padding:9px 22px;
+    font-size:15px;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    transition:background .2s ease, transform .2s ease;
+  }
+  nav a:hover{background:#c04d34;transform:translateY(-1px);}
+  .menu-toggle{
+    display:none;background:none;border:none;font-size:28px;
+    color:#fff;cursor:pointer;
+  }
+
+  /* ===== SECTION BACKGROUND TREATMENTS ===== */
+  .bg-navy-photo{
+    position:relative;
+    background:
+      linear-gradient(rgba(46,52,129,.88), rgba(46,52,129,.88)),
+      url('https://static.wixstatic.com/media/nsplsh_1176b34d778a43bc9863d4b8939ee118~mv2.jpg');
+    background-size:cover;
+    background-position:center;
+    color:#fff;
+  }
+  .bg-orange-photo{
+    position:relative;
+    background:
+      linear-gradient(rgba(196,80,53,.85), rgba(196,80,53,.85)),
+      url('https://static.wixstatic.com/media/01ec1c4e65f74969b02b47680434f5e5.jpg');
+    background-size:cover;
+    background-position:center;
+    color:#fff;
+  }
+  .bg-orange-photo.runners{
+    background-image:
+      linear-gradient(rgba(196,80,53,.85), rgba(196,80,53,.85)),
+      url('https://static.wixstatic.com/media/05b4119c35574cceb3b33c7d73682de1.jpg');
+  }
+
+  /* ===== HERO ===== */
+  .hero{padding:70px 0 60px;}
+  .hero h1{
+    color:#fff;font-size:clamp(38px,6vw,64px);
+    font-weight:300;
+    text-align:left;margin-bottom:6px;
+  }
+  .hero .tagline{
+    font-size:clamp(18px,2.4vw,26px);color:#e7e6f7;font-weight:300;
+    margin-bottom:50px;
+  }
+
+  .about{
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;
+  }
+  .photo-col{position:relative;}
+  .photo-frame{
+    position:relative;width:100%;max-width:420px;
+  }
+  .badge-onme{
+    position:relative;z-index:2;margin-bottom:-24px;margin-left:10%;
+  }
+  .photo-frame img.portrait{
+    width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;
+    border:6px solid rgba(255,255,255,.15);
+  }
+  .linkedin-mini{
+    display:inline-flex;margin-top:18px;background:#fff;border-radius:50%;
+    padding:6px;
+  }
+  .linkedin-mini img{height:20px;width:20px;}
+  .badge-stack{
+    display:flex;flex-direction:column;gap:12px;margin-top:22px;align-items:flex-start;
+  }
+  .badge-stack .pill{font-size:15px;padding:9px 20px;}
+
+  .about-text h2{
+    color:#fff;font-size:clamp(36px,5.5vw,54px);line-height:1.05;
+    font-weight:300;
+    text-transform:uppercase;margin-bottom:22px;
+  }
+  .about-text p{margin-bottom:18px;font-size:16.5px;font-weight:300;color:#f1f0fb;}
+  .about-text p strong{font-weight:600;color:#fff;}
+
+  /* ===== SERVICES ===== */
+  .services{padding:64px 0 74px;}
+  .section-badge-row{text-align:center;margin-bottom:44px;}
+  .service-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:34px;
+  }
+  .service-card{
+    background:rgba(var(--navy-rgb),.78);
+    border-radius:var(--radius-card);
+    padding:34px 32px 30px;
+  }
+  .service-card h3{
+    color:#fff;font-size:19px;font-weight:400;font-family:'Poppins',sans-serif;
+    margin-bottom:22px;line-height:1.4;
+  }
+  .service-card .icon-wrap{
+    height:120px;display:flex;align-items:center;margin-bottom:6px;
+  }
+  .service-card .icon-wrap img{max-height:110px;width:auto;filter:brightness(0) invert(1);opacity:.95;}
+  .service-card ul{color:#e4e3f5;font-size:15px;font-weight:300;}
+  .service-card li{
+    padding:9px 0;border-top:1px solid rgba(255,255,255,.15);
+  }
+  .service-card li:first-child{border-top:none;}
+
+  /* ===== ROZHOVORY ===== */
+  .rozhovory{padding:64px 0 70px;}
+  .interview-list{
+    display:flex;flex-direction:column;gap:16px;max-width:760px;margin:0 auto 50px;
+  }
+  .interview-row{
+    display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+  }
+  .interview-row .pill.navy{
+    flex-shrink:0;min-width:190px;text-align:center;
+    background:rgba(var(--navy-rgb),.85);
+    font-weight:700;
+  }
+  .interview-row span{font-size:16px;font-weight:300;color:#f1f0fb;}
+
+  .quote-bubble{
+    max-width:600px;margin:0 auto;
+    background:var(--orange);
+    border-radius:40px;
+    padding:38px 44px;
+    text-align:left;
+  }
+  .quote-bubble p.q{
+    font-size:22px;font-family:'Poppins',sans-serif;font-weight:500;color:#fff;
+    margin-bottom:14px;line-height:1.3;
+  }
+  .quote-bubble p.author{
+    font-size:16px;color:#fff;font-weight:600;text-align:right;
+  }
+
+  /* ===== KLIENTI + KONTAKT ===== */
+  .klienti-kontakt{padding:60px 0 0;}
+  .klienti-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:24px;
+    text-align:center;margin-bottom:48px;
+  }
+  .klienti-grid .icon-wrap{
+    height:78px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:14px;
+  }
+  .klienti-grid .icon-wrap img{max-height:78px;width:auto;filter:brightness(0) invert(1);}
+  .klienti-grid h4{
+    color:#fff;font-size:15px;font-weight:600;font-family:'Poppins',sans-serif;
+  }
+
+  .contact-pill{
+    background:var(--navy);
+    border-radius:var(--radius-pill);
+    max-width:640px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;
+    padding:26px 10px;
+  }
+  .contact-pill .col{text-align:center;}
+  .contact-pill h5{
+    color:#fff;font-size:15px;font-weight:700;margin-bottom:8px;
+    font-family:'Poppins',sans-serif;
+  }
+  .contact-pill a, .contact-pill p{
+    color:#e4e3f5;font-size:15.5px;font-weight:300;
+  }
+  .contact-pill .col:first-child{
+    border-right:1px solid rgba(255,255,255,.2);
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--navy);
+    margin-top:60px;
+    padding:26px 0;
+  }
+  .footer-inner{
+    display:grid;grid-template-columns:1fr auto 1fr;
+    align-items:center;gap:24px;
+    max-width:var(--maxw);margin:0 auto;padding:0 32px;
+  }
+  .footer-left{display:flex;gap:36px;}
+  .footer-left div h6{
+    color:#fff;font-size:13px;font-weight:700;margin-bottom:4px;
+    font-family:'Poppins',sans-serif;
+  }
+  .footer-left div p, .footer-left div a{color:#cfcef0;font-size:14px;font-weight:300;}
+  .footer-social{margin-top:6px;display:inline-flex;background:#fff;border-radius:50%;padding:5px;}
+  .footer-social img{height:16px;width:16px;}
+  .footer-logo{text-align:center;}
+  .footer-logo img{height:30px;margin:0 auto;}
+  .footer-right{text-align:right;color:#cfcef0;font-size:13px;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px){
+    .about{grid-template-columns:1fr;gap:40px;}
+    .photo-frame{max-width:280px;margin:0 auto;}
+    .badge-onme{margin-left:0;text-align:center;width:100%;}
+    .badge-stack{align-items:center;}
+    .about-text{text-align:center;}
+    .about-text h2{text-align:center;}
+    .linkedin-mini{margin-left:auto;margin-right:auto;}
+
+    .service-grid{grid-template-columns:1fr;gap:26px;}
+
+    .klienti-grid{grid-template-columns:repeat(3,1fr);row-gap:34px;}
+
+    .footer-inner{grid-template-columns:1fr;text-align:center;gap:18px;}
+    .footer-left{justify-content:center;flex-wrap:wrap;gap:24px;}
+    .footer-right{text-align:center;}
+  }
+  @media (max-width: 640px){
+    .menu-toggle{display:block;}
+    nav ul{
+      position:fixed;top:74px;left:0;right:0;bottom:0;
+      background:var(--navy);flex-direction:column;align-items:center;
+      justify-content:flex-start;padding-top:50px;gap:18px;
+      transform:translateX(100%);transition:transform .3s ease;
+    }
+    nav ul.open{transform:translateX(0);}
+    .klienti-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-pill{grid-template-columns:1fr;padding:22px 20px;gap:20px;}
+    .contact-pill .col:first-child{border-right:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:18px;}
+    .interview-row{flex-direction:column;align-items:flex-start;gap:10px;}
+    .interview-row .pill.navy{width:100%;text-align:center;}
+    .quote-bubble{padding:28px 26px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#top">
+      <img src="https://static.wixstatic.com/media/845dab_0de5e7cb15cf40bbbe52781c57a9aa63~mv2.png" alt="Pavel Šnobl">
+    </a>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('nav ul').classList.toggle('open')">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#rozhovory">Rozhovory</a></li>
+        <li><a href="#klienti">Klienti</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero bg-navy-photo" style="background-image:linear-gradient(160deg, rgba(35,35,95,.93), rgba(58,58,140,.88));">
+    <div class="wrap">
+      <h1>Daně s rozumem</h1>
+      <p class="tagline">- moderní řešení pro každou situaci</p>
+
+      <div class="about">
+        <div class="photo-col">
+          <div class="badge-onme"><span class="pill">O mně</span></div>
+          <div class="photo-frame">
+            <img class="portrait" src="https://static.wixstatic.com/media/845dab_39c46a32914a48169f3b0bf48907e426~mv2.png" alt="Pavel Šnobl">
+          </div>
+          <a class="linkedin-mini" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/" target="_blank" rel="noopener">
+            <img src="https://static.wixstatic.com/media/f61c7a3b4b4947b28511a25034973383.png" alt="LinkedIn">
+          </a>
+          <div class="badge-stack">
+            <span class="pill">individuální přístup</span>
+            <span class="pill">20 let praxe</span>
+            <span class="pill">Specializace na sportovce a umělce</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <h2>PAVEL ŠNOBL</h2>
+          <p>Jmenuji se Pavel Šnobl a <strong>více než 20 let</strong> se věnuji daňovému poradenství. <strong>Specializuji se především na sportovce a umělce.</strong> Mým cílem je nabídnout <strong>chytrý přístup k daním</strong>, které vnímám jako příležitost k zamyšlení, ne jako složitou povinnost.</p>
+          <p>Věřím, že <strong>daně není potřeba komplikovat.</strong> Využívám selský rozum a snažím se, aby daně byly pro mé klienty srozumitelné. Ke každému přistupuji individuálně; pomáhám najít to <strong>nejlepší řešení.</strong></p>
+          <p>Důležitou součástí mé práce je také osvěta mladých sportovců. Snažím se zvyšovat jejich daňové povědomí tak, aby se vyhnuli problémům v budoucnu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sluzby" class="services bg-orange-photo">
+    <div class="wrap">
+      <div class="section-badge-row"><span class="pill navy">Jak vám mohu pomoci?</span></div>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Pokud jsou vaše aktivity zaměřené především na Českou republiku:</h3>
+          <div class="icon-wrap">
+            <img src="https://static.wixstatic.com/media/845dab_acd2bc901f714ef186529194d244fe37~mv2.png" alt="Česká republika">
+          </div>
+          <ul>
+            <li>Zhodnocení daňové situace</li>
+            <li>Daňové plánování</li>
+            <li>Sestavení daňového přiznání</li>
+            <li>Podpora v oblasti sociálního a zdravotního pojištění</li>
+            <li>Komunikace s úřady</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>Pokud vaše aktivity přesahují hranice České republiky:</h3>
+          <div class="icon-wrap">
+            <img src="https://static.wixstatic.com/media/845dab_729a354ddb6c475f8829187053d2bad3~mv2.png" alt="Svět">
+          </div>
+          <ul>
+            <li>Vysvětlení daňových přeshraničních dopadů</li>
+            <li>Sestavení daňového přiznání a zamezení dvojímu zdanění</li>
+            <li>Podpora a koordinace zdanění v zahraničí</li>
+            <li>Určení státu pro odvod pojistného v rámci EU</li>
+            <li>Řešení dopadů v oblasti pojistného mimo EU</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rozhovory" class="rozhovory bg-navy-photo">
+    <div class="wrap">
+      <div class="section-badge-row"><span class="pill">Poslechnětě si</span></div>
+      <div class="interview-list">
+        <a class="interview-row" href="https://open.spotify.com/episode/3zqyh8RrISptfa6DB8nqKm" target="_blank" rel="noopener">
+          <span class="pill navy">Livesport Daily</span>
+          <span>Mají čeští sportovci problém s daněmi?</span>
+        </a>
+        <a class="interview-row" href="https://www.youtube.com/watch?v=eBeOxFN36s4" target="_blank" rel="noopener">
+          <span class="pill navy">EP Events and Production</span>
+          <span>Daně a smrt, to je jistota!</span>
+        </a>
+        <a class="interview-row" href="https://www.youtube.com/watch?v=08Tup4p30BY" target="_blank" rel="noopener">
+          <span class="pill navy">Sport a Prachy</span>
+          <span>Pavel Šnobl: Sportovci a daně</span>
+        </a>
+        <a class="interview-row" href="https://www.youtube.com/watch?si=mxYATgWAiHvxnFwM&v=WVVZFuaYIPo&feature=youtu.be" target="_blank" rel="noopener">
+          <span class="pill navy">SPORT 5</span>
+          <span>Nejslavnější světoví sportovci, peníze a prestiž</span>
+        </a>
+        <a class="interview-row" href="https://www.youtube.com/watch?v=G0ta0vxSqGo" target="_blank" rel="noopener">
+          <span class="pill navy">Epravo.cz</span>
+          <span>Rozhovor s Janem Exnerem a Pavlem Šnoblem</span>
+        </a>
+      </div>
+      <div class="quote-bubble">
+        <p class="q">„Je dobré mít daně na své straně.“</p>
+        <p class="author">Pavel Šnobl</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="klienti" class="klienti-kontakt bg-orange-photo runners">
+    <div class="wrap" style="padding-bottom:64px;">
+      <div class="section-badge-row"><span class="pill navy">Spokojení klienti</span></div>
+      <div class="klienti-grid">
+        <div>
+          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_b9cda7cbf9d54a8f9d45b19947963f13~mv2.png" alt=""></div>
+          <h4>Tomáš Souček</h4>
+        </div>
+        <div>
+          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_ee537e6161f14f9fa6f423d360ee2b7e~mv2.png" alt=""></div>
+          <h4>Ester Ledecká</h4>
+        </div>
+        <div>
+          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_adc6965f8fa04a89a2b07cc4c01214dc~mv2.png" alt=""></div>
+          <h4>Karolína Plíšková</h4>
+        </div>
+        <div>
+          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_4c9556fe182f46b58178a5870d7644fd~mv2.png" alt=""></div>
+          <h4>Pepa Dostál</h4>
+        </div>
+        <div>
+          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_41dc3de689934ff6b57be9cd71c317fb~mv2.png" alt=""></div>
+          <h4>Markéta Vondroušová</h4>
+        </div>
+      </div>
+
+      <div id="kontakt" class="contact-pill">
+        <div class="col">
+          <h5>Telefon</h5>
+          <p><a href="tel:+420733611623">733 611 623</a></p>
+        </div>
+        <div class="col">
+          <h5>Email</h5>
+          <p><a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div>
+        <h6>Telefon</h6>
+        <p><a href="tel:+420733611623">733 611 623</a></p>
+      </div>
+      <div>
+        <h6>Email</h6>
+        <p><a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a></p>
+      </div>
+      <div>
+        <h6>Sítě</h6>
+        <a class="footer-social" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/" target="_blank" rel="noopener">
+          <img src="https://static.wixstatic.com/media/11062b_60c5fc4a3ecd49f2a697206b09eeace1~mv2.png" alt="LinkedIn">
+        </a>
+      </div>
+    </div>
+    <div class="footer-logo">
+      <img src="https://static.wixstatic.com/media/845dab_0de5e7cb15cf40bbbe52781c57a9aa63~mv2.png" alt="Pavel Šnobl">
+    </div>
+    <div class="footer-right">
+      <p>© 2024 vytvořila Alena Vohanková</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
