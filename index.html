@@ -2,319 +2,173 @@
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home | Pavel</title>
-<meta name="description" content="Pavel Šnobl - daňové poradenství pro sportovce a umělce">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#2e3481;
-    --navy-rgb:46,52,129;
-    --orange:#d1583d;
-    --orange-rgb:209,88,61;
-    --white:#ffffff;
-    --maxw:1180px;
-    --radius-pill:999px;
-    --radius-card:26px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Poppins',sans-serif;
-    font-weight:400;
-    color:var(--navy);
-    background:var(--white);
-    line-height:1.6;
-    font-size:16px;
-    overflow-x:hidden;
-  }
-  img{max-width:100%;display:block;}
-  a{color:inherit;text-decoration:none;}
-  ul{list-style:none;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-  h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:300;}
-  section[id]{scroll-margin-top:90px;}
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--orange);
-    outline-offset:3px;
-    border-radius:4px;
-  }
+<!-- ------------------------------------------------------ základní SEO -->
+<title>Pavel Šnobl – daňový poradce pro sportovce a umělce</title>
+<meta name="description" content="Daňový poradce Pavel Šnobl – přes 20 let praxe, specializace na sportovce a umělce. Daňová přiznání, daňové plánování a zdanění příjmů ze zahraničí.">
+<meta name="author" content="Pavel Šnobl">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.pavelsnobl.cz/">
 
-  .pill{
-    display:inline-block;
-    background:var(--orange);
-    color:#fff;
-    border-radius:var(--radius-pill);
-    padding:10px 26px;
-    font-weight:700;
-    font-family:'Poppins',sans-serif;
-    font-size:16px;
-    white-space:nowrap;
-  }
-  .pill.navy{background:var(--navy);}
+<!-- --------------------------------------------- sdílení na sítích (OG) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pavel Šnobl – daňové poradenství">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="Pavel Šnobl – daňový poradce pro sportovce a umělce">
+<meta property="og:description" content="Daňové poradenství pro sportovce a umělce – více než 20 let praxe. Daně v ČR i v zahraničí, srozumitelně a individuálně.">
+<meta property="og:url" content="https://www.pavelsnobl.cz/">
+<meta property="og:image" content="https://www.pavelsnobl.cz/assets/img/pavel-snobl.jpg">
+<meta property="og:image:width" content="960">
+<meta property="og:image:height" content="960">
+<meta property="og:image:alt" content="Daňový poradce Pavel Šnobl">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pavel Šnobl – daňový poradce pro sportovce a umělce">
+<meta name="twitter:description" content="Daňové poradenství pro sportovce a umělce – více než 20 let praxe. Daně v ČR i v zahraničí.">
+<meta name="twitter:image" content="https://www.pavelsnobl.cz/assets/img/pavel-snobl.jpg">
 
-  /* ===== HEADER ===== */
-  header{
-    background:var(--navy);
-    position:sticky;top:0;z-index:100;
-  }
-  .header-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 32px;max-width:var(--maxw);margin:0 auto;
-  }
-  .logo img{height:38px;width:auto;}
-  nav ul{display:flex;gap:14px;flex-wrap:wrap;}
-  nav a{
-    display:inline-block;
-    background:var(--orange);
-    color:#fff;
-    border-radius:var(--radius-pill);
-    padding:9px 22px;
-    font-size:15px;
-    font-weight:600;
-    font-family:'Poppins',sans-serif;
-    transition:background .2s ease, transform .2s ease;
-  }
-  nav a:hover{background:#c04d34;transform:translateY(-1px);}
-  .menu-toggle{
-    display:none;background:none;border:none;font-size:28px;
-    color:#fff;cursor:pointer;
-  }
+<!-- ------------------------------------------------------------ ikony -->
+<meta name="theme-color" content="#183387">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
 
-  /* ===== SECTION BACKGROUND TREATMENTS ===== */
-  .bg-navy-photo{
-    position:relative;
-    background:
-      linear-gradient(rgba(46,52,129,.88), rgba(46,52,129,.88)),
-      url('https://static.wixstatic.com/media/nsplsh_1176b34d778a43bc9863d4b8939ee118~mv2.jpg');
-    background-size:cover;
-    background-position:center;
-    color:#fff;
-  }
-  .bg-orange-photo{
-    position:relative;
-    background:
-      linear-gradient(rgba(196,80,53,.85), rgba(196,80,53,.85)),
-      url('https://static.wixstatic.com/media/01ec1c4e65f74969b02b47680434f5e5.jpg');
-    background-size:cover;
-    background-position:center;
-    color:#fff;
-  }
-  .bg-orange-photo.runners{
-    background-image:
-      linear-gradient(rgba(196,80,53,.85), rgba(196,80,53,.85)),
-      url('https://static.wixstatic.com/media/05b4119c35574cceb3b33c7d73682de1.jpg');
-  }
+<!-- ------------------------------------------------------------ zdroje -->
+<link rel="preload" href="assets/fonts/garet-book.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
 
-  /* ===== HERO ===== */
-  .hero{padding:70px 0 60px;}
-  .hero h1{
-    color:#fff;font-size:clamp(38px,6vw,64px);
-    font-weight:300;
-    text-align:left;margin-bottom:6px;
-  }
-  .hero .tagline{
-    font-size:clamp(18px,2.4vw,26px);color:#e7e6f7;font-weight:300;
-    margin-bottom:50px;
-  }
-
-  .about{
-    display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;
-  }
-  .photo-col{position:relative;}
-  .photo-frame{
-    position:relative;width:100%;max-width:420px;
-  }
-  .badge-onme{
-    position:relative;z-index:2;margin-bottom:-24px;margin-left:10%;
-  }
-  .photo-frame img.portrait{
-    width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;
-    border:6px solid rgba(255,255,255,.15);
-  }
-  .linkedin-mini{
-    display:inline-flex;margin-top:18px;background:#fff;border-radius:50%;
-    padding:6px;
-  }
-  .linkedin-mini img{height:20px;width:20px;}
-  .badge-stack{
-    display:flex;flex-direction:column;gap:12px;margin-top:22px;align-items:flex-start;
-  }
-  .badge-stack .pill{font-size:15px;padding:9px 20px;}
-
-  .about-text h2{
-    color:#fff;font-size:clamp(36px,5.5vw,54px);line-height:1.05;
-    font-weight:300;
-    text-transform:uppercase;margin-bottom:22px;
-  }
-  .about-text p{margin-bottom:18px;font-size:16.5px;font-weight:300;color:#f1f0fb;}
-  .about-text p strong{font-weight:600;color:#fff;}
-
-  /* ===== SERVICES ===== */
-  .services{padding:64px 0 74px;}
-  .section-badge-row{text-align:center;margin-bottom:44px;}
-  .service-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:34px;
-  }
-  .service-card{
-    background:rgba(var(--navy-rgb),.78);
-    border-radius:var(--radius-card);
-    padding:34px 32px 30px;
-  }
-  .service-card h3{
-    color:#fff;font-size:19px;font-weight:400;font-family:'Poppins',sans-serif;
-    margin-bottom:22px;line-height:1.4;
-  }
-  .service-card .icon-wrap{
-    height:120px;display:flex;align-items:center;margin-bottom:6px;
-  }
-  .service-card .icon-wrap img{max-height:110px;width:auto;filter:brightness(0) invert(1);opacity:.95;}
-  .service-card ul{color:#e4e3f5;font-size:15px;font-weight:300;}
-  .service-card li{
-    padding:9px 0;border-top:1px solid rgba(255,255,255,.15);
-  }
-  .service-card li:first-child{border-top:none;}
-
-  /* ===== ROZHOVORY ===== */
-  .rozhovory{padding:64px 0 70px;}
-  .interview-list{
-    display:flex;flex-direction:column;gap:16px;max-width:760px;margin:0 auto 50px;
-  }
-  .interview-row{
-    display:flex;align-items:center;gap:22px;flex-wrap:wrap;
-  }
-  .interview-row .pill.navy{
-    flex-shrink:0;min-width:190px;text-align:center;
-    background:rgba(var(--navy-rgb),.85);
-    font-weight:700;
-  }
-  .interview-row span{font-size:16px;font-weight:300;color:#f1f0fb;}
-
-  .quote-bubble{
-    max-width:600px;margin:0 auto;
-    background:var(--orange);
-    border-radius:40px;
-    padding:38px 44px;
-    text-align:left;
-  }
-  .quote-bubble p.q{
-    font-size:22px;font-family:'Poppins',sans-serif;font-weight:500;color:#fff;
-    margin-bottom:14px;line-height:1.3;
-  }
-  .quote-bubble p.author{
-    font-size:16px;color:#fff;font-weight:600;text-align:right;
-  }
-
-  /* ===== KLIENTI + KONTAKT ===== */
-  .klienti-kontakt{padding:60px 0 0;}
-  .klienti-grid{
-    display:grid;grid-template-columns:repeat(5,1fr);gap:24px;
-    text-align:center;margin-bottom:48px;
-  }
-  .klienti-grid .icon-wrap{
-    height:78px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:14px;
-  }
-  .klienti-grid .icon-wrap img{max-height:78px;width:auto;filter:brightness(0) invert(1);}
-  .klienti-grid h4{
-    color:#fff;font-size:15px;font-weight:600;font-family:'Poppins',sans-serif;
-  }
-
-  .contact-pill{
-    background:var(--navy);
-    border-radius:var(--radius-pill);
-    max-width:640px;margin:0 auto;
-    display:grid;grid-template-columns:1fr 1fr;
-    padding:26px 10px;
-  }
-  .contact-pill .col{text-align:center;}
-  .contact-pill h5{
-    color:#fff;font-size:15px;font-weight:700;margin-bottom:8px;
-    font-family:'Poppins',sans-serif;
-  }
-  .contact-pill a, .contact-pill p{
-    color:#e4e3f5;font-size:15.5px;font-weight:300;
-  }
-  .contact-pill .col:first-child{
-    border-right:1px solid rgba(255,255,255,.2);
-  }
-
-  /* ===== FOOTER ===== */
-  footer{
-    background:var(--navy);
-    margin-top:60px;
-    padding:26px 0;
-  }
-  .footer-inner{
-    display:grid;grid-template-columns:1fr auto 1fr;
-    align-items:center;gap:24px;
-    max-width:var(--maxw);margin:0 auto;padding:0 32px;
-  }
-  .footer-left{display:flex;gap:36px;}
-  .footer-left div h6{
-    color:#fff;font-size:13px;font-weight:700;margin-bottom:4px;
-    font-family:'Poppins',sans-serif;
-  }
-  .footer-left div p, .footer-left div a{color:#cfcef0;font-size:14px;font-weight:300;}
-  .footer-social{margin-top:6px;display:inline-flex;background:#fff;border-radius:50%;padding:5px;}
-  .footer-social img{height:16px;width:16px;}
-  .footer-logo{text-align:center;}
-  .footer-logo img{height:30px;margin:0 auto;}
-  .footer-right{text-align:right;color:#cfcef0;font-size:13px;}
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px){
-    .about{grid-template-columns:1fr;gap:40px;}
-    .photo-frame{max-width:280px;margin:0 auto;}
-    .badge-onme{margin-left:0;text-align:center;width:100%;}
-    .badge-stack{align-items:center;}
-    .about-text{text-align:center;}
-    .about-text h2{text-align:center;}
-    .linkedin-mini{margin-left:auto;margin-right:auto;}
-
-    .service-grid{grid-template-columns:1fr;gap:26px;}
-
-    .klienti-grid{grid-template-columns:repeat(3,1fr);row-gap:34px;}
-
-    .footer-inner{grid-template-columns:1fr;text-align:center;gap:18px;}
-    .footer-left{justify-content:center;flex-wrap:wrap;gap:24px;}
-    .footer-right{text-align:center;}
-  }
-  @media (max-width: 640px){
-    .menu-toggle{display:block;}
-    nav ul{
-      position:fixed;top:74px;left:0;right:0;bottom:0;
-      background:var(--navy);flex-direction:column;align-items:center;
-      justify-content:flex-start;padding-top:50px;gap:18px;
-      transform:translateX(100%);transition:transform .3s ease;
+<!-- ---------------------------------------------- strukturovaná data --
+     Jeden @graph: osoba, poradenská praxe, web a nabízené služby.
+     Slouží vyhledávačům i AI asistentům (GEO) k přesnému citování. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.pavelsnobl.cz/#pavel-snobl",
+      "name": "Pavel Šnobl",
+      "givenName": "Pavel",
+      "familyName": "Šnobl",
+      "jobTitle": "Daňový poradce",
+      "description": "Daňový poradce s více než 20 lety praxe. Specializuje se na daňové poradenství pro sportovce a umělce, včetně přeshraničního zdanění a zamezení dvojímu zdanění.",
+      "image": "https://www.pavelsnobl.cz/assets/img/pavel-snobl.jpg",
+      "url": "https://www.pavelsnobl.cz/",
+      "email": "dane@pavelsnobl.cz",
+      "telephone": "+420733611623",
+      "sameAs": ["https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/"],
+      "knowsLanguage": ["cs", "en"],
+      "knowsAbout": [
+        "Daňové poradenství",
+        "Zdanění sportovců",
+        "Zdanění umělců",
+        "Daňové přiznání k dani z příjmů fyzických osob",
+        "Daňové plánování",
+        "Mezinárodní zdanění a zamezení dvojímu zdanění",
+        "Sociální a zdravotní pojištění",
+        "Koordinace sociálního zabezpečení v EU"
+      ],
+      "worksFor": { "@id": "https://www.pavelsnobl.cz/#praxe" }
+    },
+    {
+      "@type": ["ProfessionalService", "AccountingService"],
+      "@id": "https://www.pavelsnobl.cz/#praxe",
+      "name": "Pavel Šnobl – daňové poradenství",
+      "alternateName": "Daně s rozumem",
+      "slogan": "Je dobré mít daně na své straně.",
+      "description": "Daňové poradenství se specializací na sportovce a umělce – zhodnocení daňové situace, daňové plánování, daňová přiznání, přeshraniční zdanění a pojistné.",
+      "url": "https://www.pavelsnobl.cz/",
+      "image": "https://www.pavelsnobl.cz/assets/img/pavel-snobl.jpg",
+      "logo": "https://www.pavelsnobl.cz/assets/img/logo.png",
+      "email": "dane@pavelsnobl.cz",
+      "telephone": "+420733611623",
+      "founder": { "@id": "https://www.pavelsnobl.cz/#pavel-snobl" },
+      "priceRange": "$$",
+      "areaServed": [
+        { "@type": "Country", "name": "Česká republika" },
+        { "@type": "Place", "name": "Zahraničí – přeshraniční zdanění" }
+      ],
+      "availableLanguage": ["cs", "en"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Poptávka daňového poradenství",
+        "telephone": "+420733611623",
+        "email": "dane@pavelsnobl.cz",
+        "availableLanguage": ["cs", "en"]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Daňové poradenství",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Aktivity zaměřené na Českou republiku",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Zhodnocení daňové situace" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Daňové plánování" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sestavení daňového přiznání" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Podpora v oblasti sociálního a zdravotního pojištění" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Komunikace s úřady" } }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Aktivity přesahující hranice České republiky",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vysvětlení daňových přeshraničních dopadů" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sestavení daňového přiznání a zamezení dvojímu zdanění" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Podpora a koordinace zdanění v zahraničí" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Určení státu pro odvod pojistného v rámci EU" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Řešení dopadů v oblasti pojistného mimo EU" } }
+            ]
+          }
+        ]
+      },
+      "subjectOf": [
+        { "@type": "PodcastEpisode", "name": "Mají čeští sportovci problém s daněmi?", "partOfSeries": { "@type": "PodcastSeries", "name": "Livesport Daily" }, "url": "https://open.spotify.com/episode/3zqyh8RrISptfa6DB8nqKm" },
+        { "@type": "CreativeWork", "name": "Daně a smrt, to je jistota!", "url": "https://www.youtube.com/watch?v=eBeOxFN36s4" },
+        { "@type": "CreativeWork", "name": "Pavel Šnobl: Sportovci a daně", "url": "https://www.youtube.com/watch?v=08Tup4p30BY" },
+        { "@type": "CreativeWork", "name": "Nejslavnější světoví sportovci, peníze a prestiž", "url": "https://www.youtube.com/watch?v=WVVZFuaYIPo" },
+        { "@type": "CreativeWork", "name": "Rozhovor s Janem Exnerem a Pavlem Šnoblem", "url": "https://www.youtube.com/watch?v=G0ta0vxSqGo" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.pavelsnobl.cz/#web",
+      "url": "https://www.pavelsnobl.cz/",
+      "name": "Pavel Šnobl – daně s rozumem",
+      "inLanguage": "cs-CZ",
+      "publisher": { "@id": "https://www.pavelsnobl.cz/#praxe" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.pavelsnobl.cz/#stranka",
+      "url": "https://www.pavelsnobl.cz/",
+      "name": "Pavel Šnobl – daňový poradce pro sportovce a umělce",
+      "description": "Daňové poradenství pro sportovce a umělce: daňová přiznání, daňové plánování, zdanění příjmů ze zahraničí, sociální a zdravotní pojištění.",
+      "isPartOf": { "@id": "https://www.pavelsnobl.cz/#web" },
+      "about": { "@id": "https://www.pavelsnobl.cz/#pavel-snobl" },
+      "inLanguage": "cs-CZ",
+      "primaryImageOfPage": "https://www.pavelsnobl.cz/assets/img/pavel-snobl.jpg"
     }
-    nav ul.open{transform:translateX(0);}
-    .klienti-grid{grid-template-columns:repeat(2,1fr);}
-    .contact-pill{grid-template-columns:1fr;padding:22px 20px;gap:20px;}
-    .contact-pill .col:first-child{border-right:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:18px;}
-    .interview-row{flex-direction:column;align-items:flex-start;gap:10px;}
-    .interview-row .pill.navy{width:100%;text-align:center;}
-    .quote-bubble{padding:28px 26px;}
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{transition-duration:.001ms !important;}
-  }
-</style>
+  ]
+}
+</script>
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a class="logo" href="#top">
-      <img src="https://static.wixstatic.com/media/845dab_0de5e7cb15cf40bbbe52781c57a9aa63~mv2.png" alt="Pavel Šnobl">
+<a class="visually-hidden" href="#obsah">Přejít na obsah</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="#top" aria-label="Pavel Šnobl – úvod">
+      <img src="assets/img/logo.png" alt="Pavel Šnobl – daňový poradce" width="1080" height="192" fetchpriority="high">
     </a>
-    <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('nav ul').classList.toggle('open')">&#9776;</button>
-    <nav>
-      <ul>
+
+    <nav class="nav" data-nav data-open="false" aria-label="Hlavní navigace">
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="hlavni-menu" aria-label="Menu">
+        <span></span>
+      </button>
+      <ul class="nav__list" id="hlavni-menu">
         <li><a href="#sluzby">Služby</a></li>
         <li><a href="#rozhovory">Rozhovory</a></li>
         <li><a href="#klienti">Klienti</a></li>
@@ -324,138 +178,177 @@
   </div>
 </header>
 
-<main id="top">
+<main id="obsah">
 
-  <section class="hero bg-navy-photo" style="background-image:linear-gradient(160deg, rgba(35,35,95,.93), rgba(58,58,140,.88));">
-    <div class="wrap">
-      <h1>Daně s rozumem</h1>
-      <p class="tagline">- moderní řešení pro každou situaci</p>
+  <!-- ============================================================ ÚVOD -->
+  <section class="section section--hero" id="top">
+    <div class="section__bg" aria-hidden="true"></div>
+    <div class="wrap hero">
+      <h1 class="hero__title">Daně s rozumem</h1>
+      <p class="hero__tagline">- moderní řešení pro každou situaci</p>
 
       <div class="about">
-        <div class="photo-col">
-          <div class="badge-onme"><span class="pill">O mně</span></div>
-          <div class="photo-frame">
-            <img class="portrait" src="https://static.wixstatic.com/media/845dab_39c46a32914a48169f3b0bf48907e426~mv2.png" alt="Pavel Šnobl">
-          </div>
-          <a class="linkedin-mini" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/" target="_blank" rel="noopener">
-            <img src="https://static.wixstatic.com/media/f61c7a3b4b4947b28511a25034973383.png" alt="LinkedIn">
+        <div class="about__col">
+          <figure class="about__figure">
+            <img src="assets/img/pavel-snobl.jpg" alt="Daňový poradce Pavel Šnobl" width="960" height="960" fetchpriority="high" decoding="async">
+            <figcaption class="pill about__badge">O mně</figcaption>
+          </figure>
+
+          <a class="about__linkedin" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/"
+             target="_blank" rel="noopener" aria-label="LinkedIn profil Pavla Šnobla">
+            <img src="assets/img/linkedin.png" alt="" width="96" height="96" loading="lazy" decoding="async">
           </a>
-          <div class="badge-stack">
-            <span class="pill">individuální přístup</span>
-            <span class="pill">20 let praxe</span>
-            <span class="pill">Specializace na sportovce a umělce</span>
-          </div>
+
+          <ul class="badges">
+            <li class="pill">individuální přístup</li>
+            <li class="pill">20 let praxe</li>
+            <li class="pill">Specializace na sportovce a umělce</li>
+          </ul>
         </div>
-        <div class="about-text">
-          <h2>PAVEL ŠNOBL</h2>
-          <p>Jmenuji se Pavel Šnobl a <strong>více než 20 let</strong> se věnuji daňovému poradenství. <strong>Specializuji se především na sportovce a umělce.</strong> Mým cílem je nabídnout <strong>chytrý přístup k daním</strong>, které vnímám jako příležitost k zamyšlení, ne jako složitou povinnost.</p>
-          <p>Věřím, že <strong>daně není potřeba komplikovat.</strong> Využívám selský rozum a snažím se, aby daně byly pro mé klienty srozumitelné. Ke každému přistupuji individuálně; pomáhám najít to <strong>nejlepší řešení.</strong></p>
-          <p>Důležitou součástí mé práce je také osvěta mladých sportovců. Snažím se zvyšovat jejich daňové povědomí tak, aby se vyhnuli problémům v budoucnu.</p>
+
+        <div class="about__col">
+          <h2 class="about__name">Pavel<br>Šnobl</h2>
+          <div class="about__text">
+            <p>Jmenuji se Pavel Šnobl a <strong>více než 20 let</strong> se věnuji daňovému poradenství.
+              <strong>Specializuji se především na sportovce a umělce</strong>. Mým cílem je nabídnout
+              <strong>chytrý přístup k daním</strong>, které vnímám jako příležitost k zamyšlení,
+              ne jako složitou povinnost.</p>
+            <p>Věřím, že <strong>daně není potřeba komplikovat</strong>. Využívám selský rozum a snažím se,
+              aby daně byly pro mé klienty srozumitelné. Ke každému přistupuji individuálně;
+              pomáhám najít to <strong>nejlepší řešení</strong>.</p>
+            <p>Důležitou součástí mé práce je také <strong>osvěta mladých sportovců</strong>. Snažím se zvyšovat
+              jejich <strong>daňové povědomí tak,</strong><br class="br-lg"> aby se <strong>vyhnuli problémům</strong> v budoucnu.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="sluzby" class="services bg-orange-photo">
-    <div class="wrap">
-      <div class="section-badge-row"><span class="pill navy">Jak vám mohu pomoci?</span></div>
-      <div class="service-grid">
-        <div class="service-card">
-          <h3>Pokud jsou vaše aktivity zaměřené především na Českou republiku:</h3>
-          <div class="icon-wrap">
-            <img src="https://static.wixstatic.com/media/845dab_acd2bc901f714ef186529194d244fe37~mv2.png" alt="Česká republika">
-          </div>
-          <ul>
+  <!-- ========================================================== SLUŽBY -->
+  <section class="section section--sluzby" id="sluzby" aria-labelledby="sluzby-nadpis">
+    <div class="section__bg" aria-hidden="true"></div>
+    <div class="wrap sluzby">
+      <div class="sluzby__head">
+        <h2 class="pill pill--navy section-pill" id="sluzby-nadpis">Jak vám mohu pomoci?</h2>
+      </div>
+
+      <div class="cards">
+        <article class="card" tabindex="0">
+          <h3 class="card__title">Pokud jsou vaše aktivity zaměřené především na Českou republiku:</h3>
+          <img class="card__icon" src="assets/img/icon-cesko.png" alt="Daně v České republice" width="604" height="604" loading="lazy" decoding="async">
+          <ul class="card__list">
             <li>Zhodnocení daňové situace</li>
             <li>Daňové plánování</li>
             <li>Sestavení daňového přiznání</li>
             <li>Podpora v oblasti sociálního a zdravotního pojištění</li>
             <li>Komunikace s úřady</li>
           </ul>
-        </div>
-        <div class="service-card">
-          <h3>Pokud vaše aktivity přesahují hranice České republiky:</h3>
-          <div class="icon-wrap">
-            <img src="https://static.wixstatic.com/media/845dab_729a354ddb6c475f8829187053d2bad3~mv2.png" alt="Svět">
-          </div>
-          <ul>
+        </article>
+
+        <article class="card" tabindex="0">
+          <h3 class="card__title">Pokud vaše aktivity přesahují hranice České republiky:</h3>
+          <img class="card__icon" src="assets/img/icon-svet.png" alt="Daně přesahující hranice České republiky" width="604" height="604" loading="lazy" decoding="async">
+          <ul class="card__list">
             <li>Vysvětlení daňových přeshraničních dopadů</li>
             <li>Sestavení daňového přiznání a zamezení dvojímu zdanění</li>
             <li>Podpora a koordinace zdanění v zahraničí</li>
             <li>Určení státu pro odvod pojistného v rámci EU</li>
             <li>Řešení dopadů v oblasti pojistného mimo EU</li>
           </ul>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="rozhovory" class="rozhovory bg-navy-photo">
-    <div class="wrap">
-      <div class="section-badge-row"><span class="pill">Poslechnětě si</span></div>
-      <div class="interview-list">
-        <a class="interview-row" href="https://open.spotify.com/episode/3zqyh8RrISptfa6DB8nqKm" target="_blank" rel="noopener">
-          <span class="pill navy">Livesport Daily</span>
-          <span>Mají čeští sportovci problém s daněmi?</span>
-        </a>
-        <a class="interview-row" href="https://www.youtube.com/watch?v=eBeOxFN36s4" target="_blank" rel="noopener">
-          <span class="pill navy">EP Events and Production</span>
-          <span>Daně a smrt, to je jistota!</span>
-        </a>
-        <a class="interview-row" href="https://www.youtube.com/watch?v=08Tup4p30BY" target="_blank" rel="noopener">
-          <span class="pill navy">Sport a Prachy</span>
-          <span>Pavel Šnobl: Sportovci a daně</span>
-        </a>
-        <a class="interview-row" href="https://www.youtube.com/watch?si=mxYATgWAiHvxnFwM&v=WVVZFuaYIPo&feature=youtu.be" target="_blank" rel="noopener">
-          <span class="pill navy">SPORT 5</span>
-          <span>Nejslavnější světoví sportovci, peníze a prestiž</span>
-        </a>
-        <a class="interview-row" href="https://www.youtube.com/watch?v=G0ta0vxSqGo" target="_blank" rel="noopener">
-          <span class="pill navy">Epravo.cz</span>
-          <span>Rozhovor s Janem Exnerem a Pavlem Šnoblem</span>
-        </a>
+  <!-- ======================================================= ROZHOVORY -->
+  <section class="section section--rozhovory" id="rozhovory" aria-labelledby="rozhovory-nadpis">
+    <div class="section__bg" aria-hidden="true"></div>
+    <div class="wrap rozhovory">
+      <div class="rozhovory__head">
+        <h2 class="pill section-pill" id="rozhovory-nadpis">Poslechnětě si</h2>
       </div>
-      <div class="quote-bubble">
-        <p class="q">„Je dobré mít daně na své straně.“</p>
-        <p class="author">Pavel Šnobl</p>
-      </div>
+
+      <ul class="interviews">
+        <li>
+          <a class="interview" href="https://open.spotify.com/episode/3zqyh8RrISptfa6DB8nqKm" target="_blank" rel="noopener">
+            <span class="pill pill--navy">Livesport Daily</span>
+            <span class="interview__desc">Mají čeští sportovci problém s daněmi?</span>
+          </a>
+        </li>
+        <li>
+          <a class="interview" href="https://www.youtube.com/watch?v=eBeOxFN36s4" target="_blank" rel="noopener">
+            <span class="pill pill--navy">EP Events and Production</span>
+            <span class="interview__desc">Daně a smrt, to je jistota!</span>
+          </a>
+        </li>
+        <li>
+          <a class="interview" href="https://www.youtube.com/watch?v=08Tup4p30BY" target="_blank" rel="noopener">
+            <span class="pill pill--navy">Sport a Prachy</span>
+            <span class="interview__desc">Pavel Šnobl: Sportovci a daně</span>
+          </a>
+        </li>
+        <li>
+          <a class="interview" href="https://www.youtube.com/watch?si=mxYATgWAiHvxnFwM&amp;v=WVVZFuaYIPo&amp;feature=youtu.be" target="_blank" rel="noopener">
+            <span class="pill pill--navy">SPORT 5</span>
+            <span class="interview__desc">Nejslavnější světoví sportovci, peníze a prestiž</span>
+          </a>
+        </li>
+        <li>
+          <a class="interview" href="https://www.youtube.com/watch?v=G0ta0vxSqGo" target="_blank" rel="noopener">
+            <span class="pill pill--navy">Epravo.cz</span>
+            <span class="interview__desc">Rozhovor s Janem Exnerem a Pavlem Šnoblem</span>
+          </a>
+        </li>
+      </ul>
+
+      <blockquote class="quote">
+        <p>„Je dobré mít daně na své straně.“</p>
+        <footer>Pavel Šnobl</footer>
+      </blockquote>
     </div>
   </section>
 
-  <section id="klienti" class="klienti-kontakt bg-orange-photo runners">
-    <div class="wrap" style="padding-bottom:64px;">
-      <div class="section-badge-row"><span class="pill navy">Spokojení klienti</span></div>
-      <div class="klienti-grid">
-        <div>
-          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_b9cda7cbf9d54a8f9d45b19947963f13~mv2.png" alt=""></div>
-          <h4>Tomáš Souček</h4>
-        </div>
-        <div>
-          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_ee537e6161f14f9fa6f423d360ee2b7e~mv2.png" alt=""></div>
-          <h4>Ester Ledecká</h4>
-        </div>
-        <div>
-          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_adc6965f8fa04a89a2b07cc4c01214dc~mv2.png" alt=""></div>
-          <h4>Karolína Plíšková</h4>
-        </div>
-        <div>
-          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_4c9556fe182f46b58178a5870d7644fd~mv2.png" alt=""></div>
-          <h4>Pepa Dostál</h4>
-        </div>
-        <div>
-          <div class="icon-wrap"><img src="https://static.wixstatic.com/media/845dab_41dc3de689934ff6b57be9cd71c317fb~mv2.png" alt=""></div>
-          <h4>Markéta Vondroušová</h4>
-        </div>
+  <!-- ============================================== KLIENTI A KONTAKT -->
+  <section class="section section--klienti" id="klienti" aria-labelledby="klienti-nadpis">
+    <div class="section__bg" aria-hidden="true"></div>
+    <div class="klienti">
+      <div class="wrap klienti__head">
+        <h2 class="pill pill--navy section-pill" id="klienti-nadpis">Spokojení klienti</h2>
       </div>
 
-      <div id="kontakt" class="contact-pill">
-        <div class="col">
-          <h5>Telefon</h5>
-          <p><a href="tel:+420733611623">733 611 623</a></p>
-        </div>
-        <div class="col">
-          <h5>Email</h5>
-          <p><a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a></p>
+      <div class="klienti__grid">
+        <figure class="klienti__item klienti__item--soucek">
+          <img src="assets/img/klient-soucek.png" alt="Tomáš Souček" width="226" height="226" loading="lazy" decoding="async">
+          <figcaption>Tomáš Souček</figcaption>
+        </figure>
+        <figure class="klienti__item klienti__item--ledecka">
+          <img src="assets/img/klient-ledecka.png" alt="Ester Ledecká" width="250" height="250" loading="lazy" decoding="async">
+          <figcaption>Ester Ledecká</figcaption>
+        </figure>
+        <figure class="klienti__item klienti__item--pliskova">
+          <img src="assets/img/klient-pliskova.png" alt="Karolína Plíšková" width="294" height="294" loading="lazy" decoding="async">
+          <figcaption>Karolína Plíšková</figcaption>
+        </figure>
+        <figure class="klienti__item klienti__item--dostal">
+          <img src="assets/img/klient-dostal.png" alt="Pepa Dostál" width="274" height="274" loading="lazy" decoding="async">
+          <figcaption>Pepa Dostál</figcaption>
+        </figure>
+        <figure class="klienti__item klienti__item--vondrousova">
+          <img src="assets/img/klient-vondrousova.png" alt="Markéta Vondroušová" width="226" height="226" loading="lazy" decoding="async">
+          <figcaption>Markéta Vondroušová</figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <div class="kontakt" id="kontakt">
+          <div>
+            <h3>Telefon</h3>
+            <a href="tel:+420733611623">733 611 623</a>
+          </div>
+          <div>
+            <h3>Email</h3>
+            <a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a>
+          </div>
         </div>
       </div>
     </div>
@@ -463,32 +356,35 @@
 
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-left">
-      <div>
-        <h6>Telefon</h6>
-        <p><a href="tel:+420733611623">733 611 623</a></p>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__contacts">
+      <div class="site-footer__contact">
+        <h4>Telefon</h4>
+        <a href="tel:+420733611623">733 611 623</a>
       </div>
-      <div>
-        <h6>Email</h6>
-        <p><a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a></p>
+      <div class="site-footer__contact">
+        <h4>Email</h4>
+        <a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a>
       </div>
-      <div>
-        <h6>Sítě</h6>
-        <a class="footer-social" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/" target="_blank" rel="noopener">
-          <img src="https://static.wixstatic.com/media/11062b_60c5fc4a3ecd49f2a697206b09eeace1~mv2.png" alt="LinkedIn">
+      <div class="site-footer__contact">
+        <h4>Sítě</h4>
+        <a class="site-footer__social" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <img src="assets/img/linkedin.png" alt="" width="96" height="96" loading="lazy" decoding="async">
         </a>
       </div>
     </div>
-    <div class="footer-logo">
-      <img src="https://static.wixstatic.com/media/845dab_0de5e7cb15cf40bbbe52781c57a9aa63~mv2.png" alt="Pavel Šnobl">
+
+    <div class="site-footer__logo">
+      <img src="assets/img/logo.png" alt="" width="1080" height="192" loading="lazy" decoding="async">
     </div>
-    <div class="footer-right">
-      <p>© 2024 vytvořila Alena Vohanková</p>
+
+    <div class="site-footer__credit">
+      <p>© 2026 vytvořilo <a href="https://www.blackmango.cz" target="_blank" rel="noopener">Blackmango.cz</a></p>
     </div>
   </div>
 </footer>
 
+<script src="js/main.js" defer></script>
 </body>
 </html>
