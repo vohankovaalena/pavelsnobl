@@ -15,7 +15,8 @@
   function setOpen(open) {
     nav.dataset.open = open ? 'true' : 'false';
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.body.style.overflow = open ? 'hidden' : '';
+    // Stav drží JS, zámek scrollu (overflow:hidden) je v CSS přes tenhle atribut.
+    document.documentElement.dataset.navOpen = open ? 'true' : 'false';
   }
 
   toggle.addEventListener('click', function () {

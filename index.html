@@ -34,11 +34,16 @@
 
 <!-- ------------------------------------------------------------ zdroje -->
 <link rel="preload" href="assets/fonts/garet-book.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/worksans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/mulish-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/bg-hero.jpg">
 <link rel="stylesheet" href="css/style.css">
 
 <!-- ---------------------------------------------- strukturovaná data --
      Jeden @graph: osoba, poradenská praxe, web a nabízené služby.
-     Slouží vyhledávačům i AI asistentům (GEO) k přesnému citování. -->
+     Slouží vyhledávačům i AI asistentům (GEO) k přesnému citování.
+     Pozor: telefon, e-mail, LinkedIn URL a seznam služeb jsou zapsané
+     ještě jednou i ve viditelném obsahu níže – při změně uprav obojí. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -182,22 +187,20 @@
 
   <!-- ============================================================ ÚVOD -->
   <section class="section section--hero" id="top">
-    <div class="section__bg" aria-hidden="true"></div>
     <div class="wrap hero">
       <h1 class="hero__title">Daně s rozumem</h1>
-      <p class="hero__tagline">- moderní řešení pro každou situaci</p>
+      <p class="hero__tagline">– moderní řešení pro každou situaci</p>
 
       <div class="about">
         <div class="about__col">
           <figure class="about__figure">
             <img src="assets/img/pavel-snobl.jpg" alt="Daňový poradce Pavel Šnobl" width="960" height="960" fetchpriority="high" decoding="async">
-            <figcaption class="pill about__badge">O mně</figcaption>
+            <span class="pill about__badge">O mně</span>
+            <a class="about__linkedin" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/"
+               target="_blank" rel="noopener" aria-label="LinkedIn profil Pavla Šnobla">
+              <img src="assets/img/linkedin.png" alt="" width="96" height="96" loading="lazy" decoding="async">
+            </a>
           </figure>
-
-          <a class="about__linkedin" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/"
-             target="_blank" rel="noopener" aria-label="LinkedIn profil Pavla Šnobla">
-            <img src="assets/img/linkedin.png" alt="" width="96" height="96" loading="lazy" decoding="async">
-          </a>
 
           <ul class="badges">
             <li class="pill">individuální přístup</li>
@@ -207,7 +210,7 @@
         </div>
 
         <div class="about__col">
-          <h2 class="about__name">Pavel<br>Šnobl</h2>
+          <p class="about__name">Pavel<br>Šnobl</p>
           <div class="about__text">
             <p>Jmenuji se Pavel Šnobl a <strong>více než 20 let</strong> se věnuji daňovému poradenství.
               <strong>Specializuji se především na sportovce a umělce</strong>. Mým cílem je nabídnout
@@ -217,23 +220,24 @@
               aby daně byly pro mé klienty srozumitelné. Ke každému přistupuji individuálně;
               pomáhám najít to <strong>nejlepší řešení</strong>.</p>
             <p>Důležitou součástí mé práce je také <strong>osvěta mladých sportovců</strong>. Snažím se zvyšovat
-              jejich <strong>daňové povědomí tak,</strong><br class="br-lg"> aby se <strong>vyhnuli problémům</strong> v budoucnu.</p>
+              jejich <strong>daňové povědomí tak,</strong> aby se <strong>vyhnuli problémům</strong> v budoucnu.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========================================================== SLUŽBY -->
+  <!-- ========================================================== SLUŽBY --
+       Seznam služeb v kartách je zapsaný ještě jednou v JSON-LD
+       (hasOfferCatalog v <head>) – při změně uprav obojí. -->
   <section class="section section--sluzby" id="sluzby" aria-labelledby="sluzby-nadpis">
-    <div class="section__bg" aria-hidden="true"></div>
     <div class="wrap sluzby">
       <div class="sluzby__head">
         <h2 class="pill pill--navy section-pill" id="sluzby-nadpis">Jak vám mohu pomoci?</h2>
       </div>
 
       <div class="cards">
-        <article class="card" tabindex="0">
+        <article class="card">
           <h3 class="card__title">Pokud jsou vaše aktivity zaměřené především na Českou republiku:</h3>
           <img class="card__icon" src="assets/img/icon-cesko.png" alt="Daně v České republice" width="604" height="604" loading="lazy" decoding="async">
           <ul class="card__list">
@@ -245,7 +249,7 @@
           </ul>
         </article>
 
-        <article class="card" tabindex="0">
+        <article class="card">
           <h3 class="card__title">Pokud vaše aktivity přesahují hranice České republiky:</h3>
           <img class="card__icon" src="assets/img/icon-svet.png" alt="Daně přesahující hranice České republiky" width="604" height="604" loading="lazy" decoding="async">
           <ul class="card__list">
@@ -260,9 +264,10 @@
     </div>
   </section>
 
-  <!-- ======================================================= ROZHOVORY -->
+  <!-- ======================================================= ROZHOVORY --
+       Seznam rozhovorů (subjectOf) je zapsaný ještě jednou v JSON-LD
+       v <head> – při změně uprav obojí. -->
   <section class="section section--rozhovory" id="rozhovory" aria-labelledby="rozhovory-nadpis">
-    <div class="section__bg" aria-hidden="true"></div>
     <div class="wrap rozhovory">
       <div class="rozhovory__head">
         <h2 class="pill section-pill" id="rozhovory-nadpis">Poslechnětě si</h2>
@@ -288,7 +293,7 @@
           </a>
         </li>
         <li>
-          <a class="interview" href="https://www.youtube.com/watch?si=mxYATgWAiHvxnFwM&amp;v=WVVZFuaYIPo&amp;feature=youtu.be" target="_blank" rel="noopener">
+          <a class="interview" href="https://www.youtube.com/watch?v=WVVZFuaYIPo" target="_blank" rel="noopener">
             <span class="pill pill--navy">SPORT 5</span>
             <span class="interview__desc">Nejslavnější světoví sportovci, peníze a prestiž</span>
           </a>
@@ -310,47 +315,51 @@
 
   <!-- ============================================== KLIENTI A KONTAKT -->
   <section class="section section--klienti" id="klienti" aria-labelledby="klienti-nadpis">
-    <div class="section__bg" aria-hidden="true"></div>
     <div class="klienti">
       <div class="wrap klienti__head">
         <h2 class="pill pill--navy section-pill" id="klienti-nadpis">Spokojení klienti</h2>
       </div>
 
       <div class="klienti__grid">
-        <figure class="klienti__item klienti__item--soucek">
+        <figure class="klienti__item" style="--h:113px">
           <img src="assets/img/klient-soucek.png" alt="Tomáš Souček" width="226" height="226" loading="lazy" decoding="async">
           <figcaption>Tomáš Souček</figcaption>
         </figure>
-        <figure class="klienti__item klienti__item--ledecka">
+        <figure class="klienti__item" style="--h:125px">
           <img src="assets/img/klient-ledecka.png" alt="Ester Ledecká" width="250" height="250" loading="lazy" decoding="async">
           <figcaption>Ester Ledecká</figcaption>
         </figure>
-        <figure class="klienti__item klienti__item--pliskova">
+        <figure class="klienti__item" style="--h:147px">
           <img src="assets/img/klient-pliskova.png" alt="Karolína Plíšková" width="294" height="294" loading="lazy" decoding="async">
           <figcaption>Karolína Plíšková</figcaption>
         </figure>
-        <figure class="klienti__item klienti__item--dostal">
+        <figure class="klienti__item" style="--h:137px">
           <img src="assets/img/klient-dostal.png" alt="Pepa Dostál" width="274" height="274" loading="lazy" decoding="async">
           <figcaption>Pepa Dostál</figcaption>
         </figure>
-        <figure class="klienti__item klienti__item--vondrousova">
+        <figure class="klienti__item" style="--h:113px">
           <img src="assets/img/klient-vondrousova.png" alt="Markéta Vondroušová" width="226" height="226" loading="lazy" decoding="async">
           <figcaption>Markéta Vondroušová</figcaption>
         </figure>
       </div>
 
-      <div class="wrap">
-        <div class="kontakt" id="kontakt">
+      <!-- Vlastní <section> vnořená kvůli sdílenému pozadí sekce Klienti;
+           má ale svůj vlastní nadpis, takže #kontakt míří na smysluplný celek. -->
+      <!-- Telefon a e-mail jsou napevno i v JSON-LD v <head> a znovu v
+           patičce – při změně uprav na všech třech místech. -->
+      <section class="wrap" id="kontakt" aria-labelledby="kontakt-nadpis">
+        <h2 class="visually-hidden" id="kontakt-nadpis">Kontakt</h2>
+        <dl class="kontakt">
           <div>
-            <h3>Telefon</h3>
-            <a href="tel:+420733611623">733 611 623</a>
+            <dt>Telefon</dt>
+            <dd><a href="tel:+420733611623">733 611 623</a></dd>
           </div>
           <div>
-            <h3>Email</h3>
-            <a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a>
+            <dt>Email</dt>
+            <dd><a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a></dd>
           </div>
-        </div>
-      </div>
+        </dl>
+      </section>
     </div>
   </section>
 
@@ -358,22 +367,24 @@
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <div class="site-footer__contacts">
+    <dl class="site-footer__contacts">
       <div class="site-footer__contact">
-        <h4>Telefon</h4>
-        <a href="tel:+420733611623">733 611 623</a>
+        <dt>Telefon</dt>
+        <dd><a href="tel:+420733611623">733 611 623</a></dd>
       </div>
       <div class="site-footer__contact">
-        <h4>Email</h4>
-        <a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a>
+        <dt>Email</dt>
+        <dd><a href="mailto:dane@pavelsnobl.cz">dane@pavelsnobl.cz</a></dd>
       </div>
       <div class="site-footer__contact">
-        <h4>Sítě</h4>
-        <a class="site-footer__social" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <img src="assets/img/linkedin.png" alt="" width="96" height="96" loading="lazy" decoding="async">
-        </a>
+        <dt>Sítě</dt>
+        <dd>
+          <a class="site-footer__social" href="https://www.linkedin.com/in/pavel-%C5%A1nobl-0a773575/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="assets/img/linkedin.png" alt="" width="96" height="96" loading="lazy" decoding="async">
+          </a>
+        </dd>
       </div>
-    </div>
+    </dl>
 
     <div class="site-footer__logo">
       <img src="assets/img/logo.png" alt="" width="1080" height="192" loading="lazy" decoding="async">
