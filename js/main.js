@@ -1,3 +1,9 @@
+/* Aktuální rok v patičce; v HTML zůstává statická hodnota jako fallback bez JS. */
+(function () {
+  var rok = document.querySelector('[data-rok]');
+  if (rok) rok.textContent = new Date().getFullYear();
+})();
+
 /* Mobilní menu – jediné chování, které stránka potřebuje v JS. */
 (function () {
   var nav = document.querySelector('[data-nav]');

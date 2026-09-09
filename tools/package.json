@@ -1,0 +1,16 @@
+{
+  "name": "pavelsnobl-tools",
+  "private": true,
+  "type": "module",
+  "description": "Pomocné skripty mimo samotný web – vizuální reference před/po refactoringu.",
+  "scripts": {
+    "shots:before": "node vizref.mjs --out screenshots/before",
+    "shots:after": "node vizref.mjs --out screenshots/after",
+    "diff": "node vizdiff.mjs screenshots/before screenshots/after"
+  },
+  "devDependencies": {
+    "pixelmatch": "^6.0.0",
+    "playwright": "1.60.0",
+    "pngjs": "^7.0.0"
+  }
+}
