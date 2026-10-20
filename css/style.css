@@ -499,7 +499,7 @@ section[id]{scroll-margin-top:20px;}
 
 @media (max-width:900px){
   .hero{padding-block:24px 56px;}
-  /* Texty v „O mně“ jsou na mobilu doprava, stejně jako na velkém webu –
+  /* Texty v „O nás“ jsou na mobilu doprava, stejně jako na velkém webu –
      ne na střed (nahlášený vizuální bug). U .about jde o grid, takže se
      mění i justify-items, ne jen text-align. */
   .hero__title{padding-left:0;text-align:right;}
